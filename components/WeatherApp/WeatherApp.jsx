@@ -22,7 +22,7 @@ import FirstData from './FirstData'
 import Loading from './Loading'
 import { useEffect } from 'react'
 
-export default function WeatherApp() {
+export default function WeatherApp () {
   const {
     loading,
     setLoading,
@@ -78,8 +78,6 @@ export default function WeatherApp() {
     try {
       setLoading(true)
       const weatherData = await fetchWeatherData(city)
-
-      console.log(weatherData)
 
       if (weatherData.cod === 200) {
         const resUnsplash = await fetch(urlUnsplash)
