@@ -6,9 +6,9 @@ export default function Footer () {
     <footer className='footer'>
       <section className='footer__section'>
         <ul className='footer__list'>
-          <Link href="#" text="LinkedIn" />
-          <Link href="#" text="Github" />
-          <Link href="#" text="Instagram" />
+          <Link href="https://www.linkedin.com/in/legodev/" text="LinkedIn" />
+          <Link href="https://github.com/legodev" text="Github" />
+          <Link href="https://www.instagram.com/lego.dev/" text="Instagram" />
         </ul>
       </section>
       <section className='footer__section'>
