@@ -14,6 +14,7 @@ import { useWeatherStates } from '../../scripts/weatherStates'
 import { fetchWeatherData, fetchForecastData } from '../../scripts/api'
 import { formatDateTime, temps } from '../../scripts/formatData/'
 import Footer from '../Footer'
+import Header from '../Header'
 
 import CardElement from '../CardElement'
 import ForecastElement from '../ForecastElement'
@@ -159,11 +160,12 @@ export default function WeatherApp () {
 
   return (
     <div>
+      <Header />
       <section className="container">
         <img src={dir} alt="City Background" className="weather__api-img" />
         {loading && <Loading />}
         <Form search={searchFunct} icon={searchIcon} />
-        <h3 className='message'>{message}</h3>
+        <h3 className="message">{message}</h3>
         <FirstData
           icon={wicon}
           temp={temp}
