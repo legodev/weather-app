@@ -1,4 +1,4 @@
-export default function Link ({ href, text }) {
+export default function FooterLink ({ href, text }) {
   return (
     <li className='footer__li'>
       <a
