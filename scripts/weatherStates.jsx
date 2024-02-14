@@ -13,7 +13,7 @@ export const useWeatherStates = () => {
     iconOne: scatteredIcon,
     iconTwo: scatteredIcon,
     iconThree: scatteredIcon,
-    location: 'oslo',
+    location: 'London',
     temp: '24°C',
     feels: '21°C',
     humidity: '64%',

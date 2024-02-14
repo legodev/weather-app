@@ -1,4 +1,4 @@
-export const fetchWeatherData = async (city) => {
+export const fetchWReq = async (city) => {
   const apiOpen = '957e2941e4119999f26c17b73153bfb5'
   const urlOpen = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiOpen}&units=metric`
 
