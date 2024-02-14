@@ -2,6 +2,7 @@
 import FooterLink from './FooterLink'
 
 export default function Footer () {
+  const year = new Date().getFullYear() 
   return (
     <footer className="footer">
       <section className="footer__section">
@@ -16,10 +17,11 @@ export default function Footer () {
             text="Instagram"
           />
         </ul>
+      {/* make a list with map */}
       </section>
       <section className="footer__section">
         <article>
-          <h3 className="footer__copy">2024 © LEONARDO GONZÁLEZ</h3>
+          <h3 className="footer__copy">{year} © LEONARDO GONZÁLEZ</h3>
         </article>
       </section>
     </footer>

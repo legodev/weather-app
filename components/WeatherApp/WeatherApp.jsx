@@ -1,6 +1,3 @@
-/* eslint-disable comma-dangle */
-/* eslint-disable quotes */
-/* eslint-disable jsx-quotes */
 import './WeatherApp.css'
 import searchIcon from '../../assets/search.png'
 import windIcon from '../../assets/wind.png'

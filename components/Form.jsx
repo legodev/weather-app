@@ -1,16 +1,23 @@
 import { useState } from 'react'
 
-/* eslint-disable jsx-quotes */
 export default function Form ({ search, icon }) {
   const [val, setVal] = useState('London')
+  function handleSubmit (e) {
+    e.preventDefault()
+    setVal("")
+  } 
+
+  function handleChange (e) {
+    setVal(e.target.value)
+  }
   return (
-    <form className="weather__top-bar" onSubmit={e => e.preventDefault()}>
+    <form className="weather__top-bar" action='' onSubmit={handleSubmit}>
       <input
         type="text"
         className="weather__city-input"
         value={val}
         placeholder="Search"
-        onChange={e => setVal(e.target.value)}
+        onChange={handleChange}
       />
       <button className="weather__search-icon" type="submit" onClick={search}>
         <img src={icon} alt="search-icon" />

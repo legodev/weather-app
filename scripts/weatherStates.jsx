@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import scatteredIcon from '../assets/scattered-clouds.png'
 
+// Usar un objeto complejo para no tener que importarlo todo de 1 en 1
+
 export const useWeatherStates = () => {
   const [empty, setEmpty] = useState(false)
   const [loading, setLoading] = useState(false)
