@@ -142,7 +142,7 @@ export default function WeatherApp () {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <section className="container">
         <img src={dataWeather.dir} alt="City Background" className="weather__api-img" />
         {dataWeather.loading && <Loading />}
@@ -228,7 +228,7 @@ export default function WeatherApp () {
           />
         </div>
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
