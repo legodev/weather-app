@@ -1,11 +1,6 @@
 import './WeatherApp.css'
 import searchIcon from '../../assets/search.png'
-// import windIcon from '../../assets/wind.png'
-// import humidityIcon from '../../assets/humidity.png'
-// import feelsIcon from '../../assets/feels.png'
-// import minIcon from '../../assets/min.png'
-// import maxIcon from '../../assets/max.png'
-// import pressureIcon from '../../assets/pressure.png'
+
 import { resolveWeatherIcon } from '../../scripts/conditional'
 import { useWeatherStates } from '../../scripts/weatherStates'
 import { fetchWReq, fetchForecastData } from '../../scripts/api'
@@ -18,20 +13,25 @@ import ForecastElement from '../ForecastElement'
 import Form from '../Form'
 import FirstData from './FirstData'
 import Loading from './Loading'
-import { useEffect, useRef } from 'react'
+import { useEffect, useState} from 'react'
 
 export default function WeatherApp () {
+
   const {
     dataWeather,
     setDataWeather,
+    icons,
   } = useWeatherStates()
+
+  const [wicon, setWicon] = useState('')
+  const [one, setOne] = useState('')
+  const [two, setTwo] = useState('')
+  const [three, setThree] = useState('')
 
   const searchFunct = async () => {
     const element = document.getElementsByClassName('weather__city-input')
     const city = element[0].value
-
-    //fix input ref
-
+    
     const apiUnsplash = 'KCOCJSdlGDReL9V-dGHJTyVUCHNwmPH3tv9u-jWfBNE'
     const urlUnsplash = `https://api.unsplash.com/search/photos?client_id=${apiUnsplash}&page=1&orientation=landscape&query=${city}`
 
@@ -39,7 +39,7 @@ export default function WeatherApp () {
       setDataWeather((prevState) => {
         return { ...prevState, loading: true }
       })
-      // const weatheData = await fetchWReq(city)
+
       const wReq = await fetchWReq(city)
 
       if (wReq.cod === 200) {
@@ -50,7 +50,6 @@ export default function WeatherApp () {
           return { ...prevState, dir: src }
         })
       } else {
-        // setMessage(wReq.message)
         setDataWeather((prevState) => {
           return { ...prevState, message: wReq.message }
         })
@@ -78,105 +77,62 @@ export default function WeatherApp () {
         }
       })
 
-      // // setLocation(wReq.name + ', ' + wReq.sys.country)
-      // // setHumidity(main.humidity + '%')
-      // // setWind(Math.round(wReq.wind.speed) + ' km/h')
-      // // setTemp(Math.round(main.temp) + c)
-      // // setFeels(Math.round(main.feels_like) + c)
-      // // setMin(Math.round(main.temp_min) + c)
-      // // setMax(Math.round(main.temp_max) + c)
-      // // setPressure(Math.round(main.pressure) + ' hPa')
-      // // setWeather(wReq.weather[0].main)
-      // // setDescription(wReq.weather[0].description)
 
-      // // resolveWeatherIcon(wReq, setWicon)
-      // resolveWeatherIcon(
-      //   wReq,
-      //   // setDataWeather((prevState) => {
-      //   //   return { ...prevState, wicon }
-      //   // })
-      //   setDataWeather()
-      // )
+      resolveWeatherIcon(wReq, setWicon)
 
-      // // const foreDays = [
-      // //   await forecastData.list[6],
-      // //   forecastData.list[14],
-      // //   forecastData.list[22],
-      // // ]
+      const foreDays = [
+        await forecastData.list[6],
+        forecastData.list[14],
+        forecastData.list[22],
+      ]
 
-      // const date = [
-      //   formatDateTime(6, forecastData),
-      //   formatDateTime(14, forecastData),
-      //   formatDateTime(22, forecastData),
-      // ]
+      const date = [
+        formatDateTime(6, forecastData),
+        formatDateTime(14, forecastData),
+        formatDateTime(22, forecastData),
+      ]
 
-      // const temp = [
-      //   temps(6, forecastData),
-      //   temps(14, forecastData),
-      //   temps(22, forecastData),
-      // ]
+      const temp = [
+        temps(6, forecastData),
+        temps(14, forecastData),
+        temps(22, forecastData),
+      ]
 
-      // const arrayInfo = [
-      //   await forecastData.list[6].weather[0].description,
-      //   forecastData.list[14].weather[0].description,
-      //   forecastData.list[22].weather[0].description,
-      // ]
+      const arrayInfo = [
+        await forecastData.list[6].weather[0].description,
+        forecastData.list[14].weather[0].description,
+        forecastData.list[22].weather[0].description,
+      ]
 
-      // const foreMains = [
-      //   await forecastData.list[6].weather[0].main,
-      //   forecastData.list[14].weather[0].main,
-      //   forecastData.list[22].weather[0].main,
-      // ]
+      const foreMains = [
+        await forecastData.list[6].weather[0].main,
+        forecastData.list[14].weather[0].main,
+        forecastData.list[22].weather[0].main,
+      ]
 
-      // // setInfo(arrayInfo)
-      // // setDays(date)
-      // // setMinmax(temp)
-      // // setForeMain(foreMains)
+      setDataWeather((prevState) => {
+        return {
+          ...prevState,
+          info: arrayInfo,
+          days: date,
+          minmax: temp,
+          foreMain: foreMains,
+        }
+      })
 
-      // setDataWeather((prevState) => {
-      //   return {
-      //     ...prevState,
-      //     info: arrayInfo,
-      //     days: date,
-      //     minmax: temp,
-      //     foreMain: foreMains,
-      //   }
-      // })
+      resolveWeatherIcon(foreDays[0], setOne)
+      resolveWeatherIcon(foreDays[1], setTwo)
+      resolveWeatherIcon(foreDays[2], setThree)
 
-      // // resolveWeatherIcon(
-      // //   foreDays[0],
-      // //   setDataWeather((prevState) => {
-      // //     return { ...prevState, iconOne }
-      // //   })
-      // // )
-
-      // // resolveWeatherIcon(
-      // //   foreDays[1],
-      // //   setDataWeather((prevState) => {
-      // //     return { ...prevState, iconTwo }
-      // //   })
-      // // )
-
-      // // resolveWeatherIcon(
-      // //   foreDays[2],
-      // //   setDataWeather((prevState) => {
-      // //     return { ...prevState, iconThree }
-      // //   })
-      // // )
-      // // resolveWeatherIcon(foreDays[0], setIconOne)
-      // // resolveWeatherIcon(foreDays[1], setIconTwo)
-      // // resolveWeatherIcon(foreDays[2], setIconThree)
-
-      // // setLoading(false)
-      // setDataWeather((prevState) => {
-      //   return { ...prevState, loading: false }
-      // })
+      setDataWeather((prevState) => {
+        return { ...prevState, loading: false }
+      })
     } catch (error) {
       console.log(error)
       // setLoading(false)
-      // setDataWeather((prevState) => {
-      //   return { ...prevState, loading: false }
-      // })
+      setDataWeather((prevState) => {
+        return { ...prevState, loading: false }
+      })
     }
   }
 
@@ -193,7 +149,7 @@ export default function WeatherApp () {
         <Form search={searchFunct} icon={searchIcon} />
         <h3 className="message">{dataWeather.message}</h3>
         <FirstData
-          icon={dataWeather.wicon}
+          icon={wicon}
           temp={dataWeather.temp}
           location={dataWeather.location}
           weather={dataWeather.weather}
@@ -201,42 +157,42 @@ export default function WeatherApp () {
         />
         <div className="weather__card-container">
           <CardElement
-            src={dataWeather.feelsIcon}
+            src={icons[0]}
             alt="Feels Like Icon"
             cls="feels__like"
             number={dataWeather.feels}
             desc="Feels Like"
           />
           <CardElement
-            src={dataWeather.minIcon}
+            src={icons[1]}
             alt="Minimum Temperature Icon"
             cls="min__temp"
             number={dataWeather.min}
             desc="Min Temp"
           />
           <CardElement
-            src={dataWeather.maxIcon}
+            src={icons[2]}
             alt="Maximum Temperature Icon"
             cls="max__temp"
             number={dataWeather.max}
             desc="Max Temp"
           />
           <CardElement
-            src={dataWeather.humidityIcon}
+            src={icons[3]}
             alt="Humidity Icon"
             cls="humidity__percent"
             number={dataWeather.humidity}
             desc="Humidity"
           />
           <CardElement
-            src={dataWeather.windIcon}
+            src={icons[4]}
             alt="Wind Icon"
             cls="wind__rate"
             number={dataWeather.wind}
             desc="Wind Speed"
           />
           <CardElement
-            src={dataWeather.pressureIcon}
+            src={icons[5]}
             alt="Pressure Icon"
             cls="pressure"
             number={dataWeather.pressure}
@@ -253,21 +209,21 @@ export default function WeatherApp () {
             day={dataWeather.days[0]}
             main={dataWeather.foreMain[0]}
             info={dataWeather.info[0]}
-            src={dataWeather.iconOne}
+            src={one}
             temp={dataWeather.minmax[0]}
           />
           <ForecastElement
             day={dataWeather.days[1]}
             main={dataWeather.foreMain[1]}
             info={dataWeather.info[1]}
-            src={dataWeather.iconTwo}
+            src={two}
             temp={dataWeather.minmax[1]}
           />
           <ForecastElement
             day={dataWeather.days[2]}
             main={dataWeather.foreMain[2]}
             info={dataWeather.info[2]}
-            src={dataWeather.iconThree}
+            src={three}
             temp={dataWeather.minmax[2]}
           />
         </div>

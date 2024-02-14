@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 export default function Form ({ search, icon }) {
-  const [val, setVal] = useState('London')
+  const [val, setVal] = useState('Oslo')
   function handleSubmit (e) {
     e.preventDefault()
     setVal("")
