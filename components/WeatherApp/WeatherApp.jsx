@@ -1,12 +1,13 @@
 import './WeatherApp.css'
 import searchIcon from '../../assets/search.png'
+import clearIcon from  '../../assets/clear.png'
 
 import { resolveWeatherIcon } from '../../scripts/conditional'
 import { useWeatherStates } from '../../scripts/weatherStates'
 import { fetchWReq, fetchForecastData } from '../../scripts/api'
 import { formatDateTime, temps } from '../../scripts/formatData/'
-import Footer from '../Footer'
-import Header from '../Header'
+// import Footer from '../Footer'
+// import Header from '../Header'
 
 import CardElement from '../CardElement'
 import ForecastElement from '../ForecastElement'
@@ -23,7 +24,7 @@ export default function WeatherApp () {
     icons,
   } = useWeatherStates()
 
-  const [wicon, setWicon] = useState('')
+  const [wicon, setWicon] = useState(clearIcon)
   const [one, setOne] = useState('')
   const [two, setTwo] = useState('')
   const [three, setThree] = useState('')
