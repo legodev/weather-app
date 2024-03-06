@@ -1,11 +1,15 @@
 import './WeatherApp.css'
-import searchIcon from '../../assets/search.png'
-import clearIcon from  '../../assets/clear.png'
+import searchIcon from 'assets/search.png'
+import clearIcon from  'assets/clear.png'
 
-import { resolveWeatherIcon } from '../../scripts/conditional'
-import { useWeatherStates } from '../../scripts/weatherStates'
-import { fetchWReq, fetchForecastData } from '../../scripts/api'
-import { formatDateTime, temps } from '../../scripts/formatData/'
+
+// IMPLEMENT INDEX.JS IN SCRIPTS
+import { resolveWeatherIcon } from 'scripts/conditional'
+import { useWeatherStates } from 'scripts/weatherStates'
+import { fetchWReq, fetchForecastData } from 'scripts/api'
+import { formatDateTime, temps } from 'scripts/formatData/'
+
+
 // import Footer from '../Footer'
 // import Header from '../Header'
 
