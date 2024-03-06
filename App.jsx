@@ -1,5 +1,5 @@
 /* eslint-disable jsx-quotes */
-import WeatherApp from './components/WeatherApp/WeatherApp'
+import WeatherApp from "./src/components/WeatherApp/WeatherApp"
 
 export default function App () {
   return (

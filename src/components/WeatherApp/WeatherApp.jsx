@@ -1,14 +1,19 @@
 import './WeatherApp.css'
-import searchIcon from 'assets/search.png'
-import clearIcon from  'assets/clear.png'
+import searchIcon from '@assets/search.png'
+import clearIcon from  '@assets/clear.png'
+import logic from '@scripts/index'
 
+// import { resolveWeatherIcon } from '@scripts/conditional'
+// import { useWeatherStates } from '@scripts/weatherStates'
+// import { fetchWReq, fetchForecastData } from '@scripts/api'
+// import { formatDateTime, temps } from '@scripts/formatData/'
 
-// IMPLEMENT INDEX.JS IN SCRIPTS
-import { resolveWeatherIcon } from 'scripts/conditional'
-import { useWeatherStates } from 'scripts/weatherStates'
-import { fetchWReq, fetchForecastData } from 'scripts/api'
-import { formatDateTime, temps } from 'scripts/formatData/'
-
+const {    resolveWeatherIcon,
+  useWeatherStates,
+  fetchWReq,
+  fetchForecastData,
+  formatDateTime,
+  temps} = logic
 
 // import Footer from '../Footer'
 // import Header from '../Header'
@@ -18,8 +23,7 @@ import ForecastElement from '../ForecastElement'
 import Form from '../Form'
 import FirstData from './FirstData'
 import Loading from './Loading'
-import { useEffect, useState} from 'react'
-
+import { useState, useEffect } from 'react'
 export default function WeatherApp () {
 
   const {

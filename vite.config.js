@@ -3,11 +3,12 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  resolve:{
+  resolve: {
     alias: {
-      assets: '/assets',
-      components: '/components',
-      scripts: '/scripts'
+      '@assets': '/src/assets',
+      '@components': '/src/components',
+      '@scripts': '/src/scripts',
     }
   }
+  
 })

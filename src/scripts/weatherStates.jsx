@@ -1,18 +1,20 @@
 import { useState } from 'react'
+import weatherIcons from '@assets/index.js'
 
-import feelsIcon from '../assets/feels.png'
-import minIcon from '../assets/min.png'
-import maxIcon from '../assets/max.png'
-import humidityIcon from '../assets/humidity.png'
-import windIcon from '../assets/wind.png'
-import pressureIcon from '../assets/pressure.png'
+const {  feelsIcon,
+  minIcon,
+  maxIcon,
+  humidityIcon,
+  windIcon,
+  pressureIcon,
+  NY,} = weatherIcons
 
 export const useWeatherStates = () => {
   const [dataWeather, setDataWeather] = useState({
     empty: false,
     loading: false,
     message: '',
-    dir: '/assets/NY.jpg',
+    dir: NY,
     location: 'London',
     temp: '24°C',
     feels: '21°C',
