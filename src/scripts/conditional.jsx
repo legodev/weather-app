@@ -1,15 +1,19 @@
-import clearIcon from '../assets/clear.png'
-import clearIconN from '../assets/clear-n.png'
-import fewIcon from '../assets/few-clouds.png'
-import fewNIcon from '../assets/few-clouds-n.png'
-import scatteredIcon from '../assets/scattered-clouds.png'
-import showerRainIcon from '../assets/shower-rain.png'
-import rainIcon from '../assets/rain.png'
-import rainNIcon from '../assets/rain-n.png'
-import thunderstormIcon from '../assets/thunderstorm.png'
-import thunderstormNIcon from '../assets/thunderstorm-n.png'
-import snowIcon from '../assets/snow.png'
-import mistIcon from '../assets/mist.png'
+import weatherIcons from '@assets/index'
+
+const {
+  clearIcon,
+  clearIconN,
+  fewIcon,
+  fewNIcon,
+  scatteredIcon,
+  showerRainIcon,
+  rainIcon,
+  rainNIcon,
+  thunderstormIcon,
+  thunderstormNIcon,
+  snowIcon,
+  mistIcon,
+} = weatherIcons
 
 export function resolveWeatherIcon (data, set) {
   if (data.weather[0].icon === '01d') {

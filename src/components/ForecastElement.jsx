@@ -8,7 +8,7 @@ export default function ForecastElement ({ day, main, info, src, temp }) {
       </div>
       <h4 className="forecast__desc">{info}</h4>
       <div className="forecast__right">
-        <img className="forecast__icon" title="Upcoming Forecast Icon" src={src} alt="Forecast Icon" />
+        <img className="forecast__icon" title="Upcoming Forecast Icon" loading="lazy" src={src} alt="Forecast Icon" />
         <h4 className="forecast__temp shadow">{temp}</h4>
       </div>
     </article>

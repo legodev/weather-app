@@ -3,11 +3,6 @@ import searchIcon from '@assets/search.png'
 import clearIcon from  '@assets/clear.png'
 import logic from '@scripts/index'
 
-// import { resolveWeatherIcon } from '@scripts/conditional'
-// import { useWeatherStates } from '@scripts/weatherStates'
-// import { fetchWReq, fetchForecastData } from '@scripts/api'
-// import { formatDateTime, temps } from '@scripts/formatData/'
-
 const {    resolveWeatherIcon,
   useWeatherStates,
   fetchWReq,
