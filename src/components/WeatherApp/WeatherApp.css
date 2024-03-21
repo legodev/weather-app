@@ -320,8 +320,9 @@ a {
 }
 
 .footer__link {
-  color: #6971d3;
+  color: #8e96ff;
   font-size: 1.2em;
+  font-weight: bold;
 }
 
 @media screen and (min-width: 768px) {
