@@ -26,6 +26,51 @@ export default function WeatherApp () {
   const { dataWeather, setDataWeather, icons } = useWeatherStates()
   const [city, setCity] = useState('Oslo')
 
+  const items = [
+    {
+      src: icons[0],
+      alt: 'Feels Like Icon',
+      cls: 'feels__like',
+      number: dataWeather.feels,
+      desc: 'Feels Like',
+    },
+    {
+      src: icons[1],
+      alt: 'Minimum Temperature Icon',
+      cls: 'min__temp',
+      number: dataWeather.min,
+      desc: 'Min Temp',
+    },
+    {
+      src: icons[2],
+      alt: 'Maximum Temperature Icon',
+      cls: 'max__temp',
+      number: dataWeather.max,
+      desc: 'Max Temp',
+    },
+    {
+      src: icons[3],
+      alt: 'Humidity Iconn',
+      cls: 'humidity__percent',
+      number: dataWeather.humidity,
+      desc: 'Humidity',
+    },
+    {
+      src: icons[4],
+      alt: 'Wind Icon',
+      cls: 'wind__rate',
+      number: dataWeather.wind,
+      desc: 'Wind Speed',
+    },
+    {
+      src: icons[5],
+      alt: 'Pressure Icon',
+      cls: 'pressure',
+      number: dataWeather.pressure,
+      desc: 'Pressure',
+    },
+  ]
+
   const handleChange = (e) => {
     setCity(e.target.value)
   }
@@ -174,48 +219,16 @@ export default function WeatherApp () {
           description={dataWeather.description}
         />
         <div className="weather__card-container">
-          <CardElement
-            src={icons[0]}
-            alt="Feels Like Icon"
-            cls="feels__like"
-            number={dataWeather.feels}
-            desc="Feels Like"
-          />
-          <CardElement
-            src={icons[1]}
-            alt="Minimum Temperature Icon"
-            cls="min__temp"
-            number={dataWeather.min}
-            desc="Min Temp"
-          />
-          <CardElement
-            src={icons[2]}
-            alt="Maximum Temperature Icon"
-            cls="max__temp"
-            number={dataWeather.max}
-            desc="Max Temp"
-          />
-          <CardElement
-            src={icons[3]}
-            alt="Humidity Icon"
-            cls="humidity__percent"
-            number={dataWeather.humidity}
-            desc="Humidity"
-          />
-          <CardElement
-            src={icons[4]}
-            alt="Wind Icon"
-            cls="wind__rate"
-            number={dataWeather.wind}
-            desc="Wind Speed"
-          />
-          <CardElement
-            src={icons[5]}
-            alt="Pressure Icon"
-            cls="pressure"
-            number={dataWeather.pressure}
-            desc="Pressure"
-          />
+          {items.map((item) => (
+            <CardElement
+              key={item.desc}
+              src={item.src}
+              alt={item.alt}
+              cls={item.cls}
+              number={item.number}
+              desc={item.desc}
+            />
+          ))}
         </div>
       </section>
       <h4 className="forecast__title">
