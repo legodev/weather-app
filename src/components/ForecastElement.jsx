@@ -1,4 +1,3 @@
-/* eslint-disable jsx-quotes */
 export default function ForecastElement ({ day, main, info, src, temp }) {
   return (
     <article className="forecast__card">

@@ -1,16 +1,18 @@
 import './WeatherApp.css'
 import searchIcon from '@assets/search.png'
-import clearIcon from  '@assets/clear.png'
+import clearIcon from '@assets/clear.png'
 import logic from '@scripts/index'
 
-const {    resolveWeatherIcon,
+const {
+  resolveWeatherIcon,
   useWeatherStates,
   fetchWReq,
   fetchForecastData,
   formatDateTime,
-  temps} = logic
+  temps,
+} = logic
 
-// import Footer from '../Footer'
+import Footer from '../Footer'
 // import Header from '../Header'
 
 import CardElement from '../CardElement'
@@ -19,13 +21,19 @@ import Form from '../Form'
 import FirstData from './FirstData'
 import Loading from './Loading'
 import { useState, useEffect } from 'react'
-export default function WeatherApp () {
 
-  const {
-    dataWeather,
-    setDataWeather,
-    icons,
-  } = useWeatherStates()
+export default function WeatherApp () {
+  const { dataWeather, setDataWeather, icons } = useWeatherStates()
+  const [city, setCity] = useState('Oslo')
+
+  const handleChange = (e) => {
+    setCity(e.target.value)
+  }
+
+  function handleSubmit (e) {
+    e.preventDefault()
+    setCity('')
+  }
 
   const [wicon, setWicon] = useState(clearIcon)
   const [one, setOne] = useState('')
@@ -33,9 +41,6 @@ export default function WeatherApp () {
   const [three, setThree] = useState('')
 
   const searchFunct = async () => {
-    const element = document.getElementsByClassName('weather__city-input')
-    const city = element[0].value
-    
     const apiUnsplash = 'KCOCJSdlGDReL9V-dGHJTyVUCHNwmPH3tv9u-jWfBNE'
     const urlUnsplash = `https://api.unsplash.com/search/photos?client_id=${apiUnsplash}&page=1&orientation=landscape&query=${city}`
 
@@ -80,7 +85,6 @@ export default function WeatherApp () {
           description: wReq.weather[0].description,
         }
       })
-
 
       resolveWeatherIcon(wReq, setWicon)
 
@@ -148,9 +152,19 @@ export default function WeatherApp () {
     <div>
       {/* <Header /> */}
       <section className="container">
-        <img src={dataWeather.dir} alt="City Background" className="weather__api-img" />
+        <img
+          src={dataWeather.dir}
+          alt="City Background"
+          className="weather__api-img"
+        />
         {dataWeather.loading && <Loading />}
-        <Form search={searchFunct} icon={searchIcon} />
+        <Form
+          value={city}
+          change={handleChange}
+          submit={handleSubmit}
+          search={searchFunct}
+          icon={searchIcon}
+        />
         <h3 className="message">{dataWeather.message}</h3>
         <FirstData
           icon={wicon}
@@ -232,7 +246,7 @@ export default function WeatherApp () {
           />
         </div>
       </section>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }

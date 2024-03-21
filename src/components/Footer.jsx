@@ -2,26 +2,34 @@
 import FooterLink from './FooterLink'
 
 export default function Footer () {
-  const year = new Date().getFullYear() 
+  const year = new Date().getFullYear()
+  const links = [
+    {
+      href: 'https://www.linkedin.com/in/legodev/',
+      text: 'LinkedIn',
+    },
+    {
+      href: 'https://github.com/legodev',
+      text: 'Github',
+    },
+    {
+      href: 'https://www.instagram.com/lego.dev/',
+      text: 'Instagram',
+    },
+  ]
+
   return (
     <footer className="footer">
       <section className="footer__section">
         <ul className="footer__list">
-          <FooterLink
-            href="https://www.linkedin.com/in/legodev/"
-            text="LinkedIn"
-          />
-          <FooterLink href="https://github.com/legodev" text="Github" />
-          <FooterLink
-            href="https://www.instagram.com/lego.dev/"
-            text="Instagram"
-          />
+          {links.map((link) => (
+            <FooterLink key={link.text} href={link.href} text={link.text} />
+          ))}
         </ul>
-      {/* make a list with map */}
       </section>
       <section className="footer__section">
         <article>
-          <h3 className="footer__copy">{year} © LEONARDO GONZÁLEZ</h3>
+          <h3 className="footer__copy">2023-{year} © LEONARDO GONZÁLEZ</h3>
         </article>
       </section>
     </footer>
