@@ -1,3 +1,10 @@
+:root{
+  --primary-color: #6a73e2;
+  --secondary-color: #9ca1d3;
+  --tertiary-color: #ddd;
+  --background: #ebfffc;
+}
+
 ul {
   padding: 0;
 }
@@ -16,7 +23,7 @@ a {
 
 .message {
   font-size: 20px;
-  color: red;
+  color: #ff1414;
 }
 
 .loader::before,
@@ -83,7 +90,7 @@ a {
   font-size: 1rem;
   color: #626262;
   border: none;
-  background-color: #ebfffc;
+  background-color: var(--background);
   border-radius: 40px;
   outline: none;
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
@@ -95,8 +102,8 @@ a {
 
 .weather__city-input:focus {
   color: #fff;
-  background-color: #6971d3;
-  box-shadow: 0px 0px 10px #6971d3;
+  background-color: var(--primary-color);
+  box-shadow: 0px 0px 10px var(--primary-color);
   text-shadow: 0px 0px 10px;
 }
 
@@ -111,15 +118,15 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ebfffc;
+  background-color: var(--background);
   border-radius: 40px;
   cursor: pointer;
   border: none;
 }
 
 .weather__search-icon:focus {
-  background-color: #6971d3;
-  box-shadow: 0px 0px 8px #6971d3;
+  background-color: var(--primary-color);
+  box-shadow: 0px 0px 8px var(--primary-color);
 }
 
 .weather__search-icon img {
@@ -173,7 +180,7 @@ a {
 .weather__temp {
   font-size: 2.2em;
   font-weight: bold;
-  color: #9ca1d3;
+  color: var(--secondary-color);
 }
 
 .weather__location {
@@ -190,7 +197,7 @@ a {
 .weather__forecast {
   font-size: 1.6em;
   font-weight: bold;
-  color: #9ca1d3;
+  color: var(--secondary-color);
 }
 
 .weather__description {
@@ -250,7 +257,7 @@ a {
 }
 
 .forecast__title span {
-  color: #6971d3;
+  color: var(--primary-color);
 }
 
 .forecast__div {
@@ -266,7 +273,8 @@ a {
   padding: 30px;
   display: grid;
   place-items: center;
-  border-bottom: 4px solid #6971d3;
+  border-bottom: 4px solid var(--primary-color);
+
 }
 
 .forecast__left {
@@ -291,7 +299,7 @@ a {
   place-self: center;
   font-size: 1.2em;
   text-transform: capitalize;
-  color: #8288c9;
+  color: var(--primary-color);
 }
 
 .forecast__right {
@@ -320,7 +328,7 @@ a {
 }
 
 .footer__link {
-  color: #8e96ff;
+  color: var(--secondary-color);
   font-size: 1.2em;
   font-weight: bold;
 }
@@ -389,8 +397,8 @@ a {
   }
 
   .weather__search-icon:hover {
-    background-color: #6971d3;
-    box-shadow: 0px 0px 15px #6971d3;
+    background-color: var(--primary-color);
+    box-shadow: 0px 0px 15px var(--primary-color);
   }
 
   .weather__search-icon:hover img {
@@ -426,6 +434,6 @@ a {
 
   .footer__link:hover {
     color: #121212;
-    background-color: #6971d3;
+    background-color: var(--primary-color);
   }
 }
