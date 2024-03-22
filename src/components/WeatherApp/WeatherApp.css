@@ -329,7 +329,7 @@ a {
   place-self: center;
   font-size: 1.2em;
   text-transform: capitalize;
-  color: var(--primary-color);
+  /* color: var(--secondary-color); */
 }
 
 .forecast__right {

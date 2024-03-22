@@ -4,7 +4,6 @@ import maxIcon from './max.png'
 import humidityIcon from './humidity.png'
 import windIcon from './wind.png'
 import pressureIcon from './pressure.png'
-import NY from './NY.jpg'
 import searchIcon from './search.png'
 import clearIcon from './clear.png'
 import clearIconN from './clear-n.png'
@@ -26,7 +25,6 @@ export default {
   humidityIcon,
   windIcon,
   pressureIcon,
-  NY,
   clearIcon,
   searchIcon,
   clearIconN,

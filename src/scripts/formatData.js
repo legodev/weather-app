@@ -1,11 +1,12 @@
 export function formatDateTime (index, data) {
   const dateTime = data.list[index].dt_txt
-  const formattedDate =
-    dateTime.substring(8, 10) +
-    '/' +
-    dateTime.substring(5, 7) +
-    dateTime.substring(10, 16) +
-    'h'
+
+  const date = dateTime.substring(8, 10) + '/' + dateTime.substring(5, 7) 
+
+  const hour =  dateTime.substring(10, 16) + 'h'
+
+  const formattedDate = date + hour
+
   return formattedDate
 }
 
