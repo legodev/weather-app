@@ -101,7 +101,7 @@ export default function WeatherApp () {
         const dataUnsplash = await resUnsplash.json()
         const src = dataUnsplash.results[0].urls.regular
         setDataWeather((prevState) => {
-          return { ...prevState, dir: src }
+          return { ...prevState, dir: src, message: '' }
         })
       } else {
         setDataWeather((prevState) => {
@@ -182,7 +182,6 @@ export default function WeatherApp () {
       })
     } catch (error) {
       console.log(error)
-      // setLoading(false)
       setDataWeather((prevState) => {
         return { ...prevState, loading: false }
       })
@@ -197,12 +196,12 @@ export default function WeatherApp () {
     <div>
       {/* <Header /> */}
       <section className="container">
+        {dataWeather.loading && <Loading />}
         <img
           src={dataWeather.dir}
           alt="City Background"
           className="weather__api-img"
         />
-        {dataWeather.loading && <Loading />}
         <Form
           value={city}
           change={handleChange}
@@ -235,6 +234,7 @@ export default function WeatherApp () {
         <span>3-day </span>Forecast
       </h4>
       <section className="container forecast">
+      {dataWeather.loading && <Loading />}
         <div className="forecast__div">
           <ForecastElement
             day={dataWeather.days[0]}

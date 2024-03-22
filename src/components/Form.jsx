@@ -1,12 +1,6 @@
 // import { useState } from 'react'
 
 export default function Form ({value, change, submit, search, icon }) {
-  // const [val, setVal] = useState('Oslo')
-
-
-  // function handleChange (e) {
-  //   setVal(e.target.value)
-  // }
   return (
     <form className="weather__top-bar" action='' onSubmit={submit}>
       <input
