@@ -12,7 +12,6 @@ const {
   temps,
 } = logic
 
-// import Header from '../Header'
 import Footer from '../Footer'
 
 import CardElement from '../CardElement'
@@ -22,7 +21,7 @@ import FirstData from './FirstData'
 import Loading from './Loading'
 import { useState, useEffect } from 'react'
 
-export default function WeatherApp () {
+export default function WeatherApp() {
   const { dataWeather, setDataWeather, icons } = useWeatherStates()
   const [city, setCity] = useState('Oslo')
 
@@ -75,7 +74,7 @@ export default function WeatherApp () {
     setCity(e.target.value)
   }
 
-  function handleSubmit (e) {
+  function handleSubmit(e) {
     e.preventDefault()
     setCity('')
   }
@@ -103,6 +102,7 @@ export default function WeatherApp () {
         setDataWeather((prevState) => {
           return { ...prevState, dir: src, message: '' }
         })
+        console.log(wReq)
       } else {
         setDataWeather((prevState) => {
           return { ...prevState, message: wReq.message }
@@ -234,7 +234,7 @@ export default function WeatherApp () {
         <span>3-day </span>Forecast
       </h4>
       <section className="container forecast">
-      {dataWeather.loading && <Loading />}
+        {dataWeather.loading && <Loading />}
         <div className="forecast__div">
           <ForecastElement
             day={dataWeather.days[0]}
@@ -258,6 +258,8 @@ export default function WeatherApp () {
             temp={dataWeather.minmax[2]}
           />
         </div>
+      </section>
+      <section>
       </section>
       <Footer />
     </div>
