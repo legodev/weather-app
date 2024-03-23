@@ -12,8 +12,8 @@ const {
   temps,
 } = logic
 
-import Footer from '../Footer'
 // import Header from '../Header'
+import Footer from '../Footer'
 
 import CardElement from '../CardElement'
 import ForecastElement from '../ForecastElement'

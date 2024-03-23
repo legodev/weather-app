@@ -154,6 +154,11 @@ a {
   border: none;
 }
 
+.weather__search-icon img {
+  width: 19px;
+  height: 21px;
+}
+
 .weather__search-icon:focus {
   background-color: var(--primary-color);
   box-shadow: 0px 0px 8px var(--primary-color);
@@ -296,6 +301,7 @@ a {
 
 .forecast__icon {
   width: 80px;
+  height: 80px;
   filter: drop-shadow(0px 0px 15px #fff8);
 }
 
@@ -329,7 +335,7 @@ a {
   place-self: center;
   font-size: 1.2em;
   text-transform: capitalize;
-  /* color: var(--secondary-color); */
+  color: var(--secondary-color);
 }
 
 .forecast__right {
