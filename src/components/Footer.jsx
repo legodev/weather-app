@@ -29,7 +29,7 @@ export default function Footer () {
       </section>
       <section className="footer__section">
         <article>
-          <h3 className="footer__copy">2023-{year} © LEONARDO GONZÁLEZ</h3>
+          <h3 className="footer__copy">© 2023-{year}  legodev</h3>
         </article>
       </section>
     </footer>
