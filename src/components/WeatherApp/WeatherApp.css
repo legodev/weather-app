@@ -83,6 +83,22 @@ a {
   }
 }
 
+.advise__container{
+  position: relative;
+  min-width: 250px;
+  margin: 50px auto;
+  padding: 20px 10px;
+  background-color: var(--primary-color);
+  border-radius: 12px;
+  text-wrap: balance;
+  text-align: center;
+}
+
+.advise__text{
+  color: #121212;
+  font-size: 1.2em;
+}
+
 .container {
   position: relative;
   min-width: 290px;
@@ -373,6 +389,11 @@ a {
   .container {
     width: 90%;
     height: 550px;
+  }
+
+  .advise__container{
+    width: 90%;
+    padding: 5px 0px;
   }
 
   .weather__data,

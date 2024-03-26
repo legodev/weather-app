@@ -2,7 +2,7 @@ import './WeatherApp.css'
 import searchIcon from '@assets/search.png'
 import clearIcon from '@assets/clear.png'
 import logic from '@scripts/index'
-
+import Advice from '../Advice'
 const {
   resolveWeatherIcon,
   useWeatherStates,
@@ -21,10 +21,10 @@ import FirstData from './FirstData'
 import Loading from './Loading'
 import { useState, useEffect } from 'react'
 
-export default function WeatherApp() {
+export default function WeatherApp () {
   const { dataWeather, setDataWeather, icons } = useWeatherStates()
   const [city, setCity] = useState('Oslo')
-
+  const [adviceTemp, setAdviceTemp] = useState(null)
   const items = [
     {
       src: icons[0],
@@ -74,7 +74,7 @@ export default function WeatherApp() {
     setCity(e.target.value)
   }
 
-  function handleSubmit(e) {
+  function handleSubmit (e) {
     e.preventDefault()
     setCity('')
   }
@@ -102,7 +102,6 @@ export default function WeatherApp() {
         setDataWeather((prevState) => {
           return { ...prevState, dir: src, message: '' }
         })
-        console.log(wReq)
       } else {
         setDataWeather((prevState) => {
           return { ...prevState, message: wReq.message }
@@ -130,6 +129,8 @@ export default function WeatherApp() {
           description: wReq.weather[0].description,
         }
       })
+
+      setAdviceTemp(main.temp)
 
       resolveWeatherIcon(wReq, setWicon)
 
@@ -194,7 +195,6 @@ export default function WeatherApp() {
 
   return (
     <div>
-      {/* <Header /> */}
       <section className="container">
         {dataWeather.loading && <Loading />}
         <img
@@ -230,6 +230,7 @@ export default function WeatherApp() {
           ))}
         </div>
       </section>
+       {adviceTemp ? <Advice data={adviceTemp} /> : null}
       <h4 className="forecast__title">
         <span>3-day </span>Forecast
       </h4>
