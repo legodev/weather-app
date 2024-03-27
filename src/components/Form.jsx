@@ -1,5 +1,3 @@
-// import { useState } from 'react'
-
 export default function Form ({value, change, submit, search, icon }) {
   return (
     <form className="weather__top-bar" action='' onSubmit={submit}>

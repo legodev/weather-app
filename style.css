@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('./src/fonts/Inter-Regular.ttf');
+  font-weight: normal;
+  font-style: none;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./src/fonts/Inter-Bold.ttf');
+  font-weight: bold;
+  font-style: none;
+}
+
 html {
   scroll-behavior: smooth;
   hyphens: auto;
@@ -15,6 +29,16 @@ body {
   font-family: Inter, sans-serif;
   margin: 0;
   padding: 0;
+  font-weight: bold;
+}
+
+body::-webkit-scrollbar{
+  background-color: #212121;
+}
+
+body::-webkit-scrollbar-thumb{
+
+  background-color: #6a73e2;
 }
 
 .App {

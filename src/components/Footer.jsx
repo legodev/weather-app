@@ -1,4 +1,3 @@
-/* eslint-disable jsx-quotes */
 import FooterLink from './FooterLink'
 
 export default function Footer () {

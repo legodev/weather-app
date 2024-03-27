@@ -1,4 +1,3 @@
-/* eslint-disable jsx-quotes */
 export default function Loading () {
   return (
     <div className="loading">

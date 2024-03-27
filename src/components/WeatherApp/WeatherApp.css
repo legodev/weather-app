@@ -18,7 +18,7 @@ a {
 }
 
 .shadow {
-  text-shadow: 0px 0px 30px #fff;
+  text-shadow: 0px 0px 15px #fff;
 }
 
 .message {
@@ -102,7 +102,7 @@ a {
 .container {
   position: relative;
   min-width: 290px;
-  height: 800px;
+  height: 820px;
   margin: 50px auto;
   border-radius: 12px;
   background: transparent;
@@ -230,12 +230,11 @@ a {
 
 .weather__temp {
   font-size: 2.2em;
-  font-weight: bold;
   color: var(--secondary-color);
 }
 
 .weather__location {
-  font-size: 1.5em;
+  font-size: 1.2em;
   text-align: center;
 }
 
@@ -247,7 +246,6 @@ a {
 
 .weather__forecast {
   font-size: 1.6em;
-  font-weight: bold;
   color: var(--secondary-color);
 }
 
@@ -288,7 +286,8 @@ a {
 }
 
 .weather__card-text {
-  font-size: 15px;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .forecast {
@@ -337,13 +336,11 @@ a {
 
 .forecast__date {
   font-size: 1.5em;
-  font-weight: bold;
 }
 
 .forecast__info {
   display: none;
   font-size: 1.3em;
-  font-weight: bold;
   text-transform: capitalize;
 }
 
@@ -382,7 +379,6 @@ a {
 .footer__link {
   color: var(--primary-color);
   font-size: 1.2em;
-  font-weight: bold;
 }
 
 @media screen and (min-width: 768px) {

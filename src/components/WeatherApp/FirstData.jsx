@@ -1,4 +1,3 @@
-/* eslint-disable jsx-quotes */
 export default function FirstData ({ icon, temp, location, weather, description }) {
   return (
     <section className="weather__data">
@@ -18,8 +17,8 @@ export default function FirstData ({ icon, temp, location, weather, description 
       </article>
 
       <article className="weather__details">
-        <aside className="weather__forecast">{weather}</aside>
-        <aside className="weather__description">{description}</aside>
+        <h3 className="weather__forecast">{weather}</h3>
+        <p className="weather__description">{description}</p>
       </article>
     </section>
   )

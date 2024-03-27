@@ -1,5 +1,4 @@
-/* eslint-disable jsx-quotes */
-export default function ({ src, alt, cls, number, desc }) {
+export default function CardElement ({ src, alt, cls, number, desc }) {
   return (
     <section className="weather__card">
       <img src={src} title={alt} alt={alt} className="weather__card-icon" />
